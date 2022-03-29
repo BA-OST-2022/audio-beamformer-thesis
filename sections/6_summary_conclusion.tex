@@ -1,0 +1,35 @@
+\chapter{Summary \& Conclusion}
+To summarize, a fully comprehensive device has been developed. With it, additional software tools were created to support the hardware in its operation and to simplify the configuration for the user. The \acrshort{fms}-Monitor enables onway customers to get access to low-level vehicle data in a very convenient manner. In order to prove the functionality, five reliable and production-ready prototypes have been produced. The devices were tested over an extended period of time with a J1939 simulator. A test report was written and can be found in the Appendix \ref{Test Reports}.
+
+All requirements defined in the task definition have been satisfied. The only pending aspect is the transmission of accelerometer data. The implementation of this feature has been neglected, due to the insufficiently detailed description of the operation. However, this functionality can easily be added in the future if necessary.
+
+\section{Continuing Work}
+Although the designed prototypes provide a rich set of features, there are some aspects to improve or features to add.  Of particular note is the fact that the system is designed for future enhancements. As an example, the flash storage of the \gls{esp32}-S2 provides lots of additional storage for larger firmware editions.\\
+The following continuations are possible:
+
+\begin{itemize}
+		\item Testing the device in the field (e.g. installed in a bus). The test results can show the impact of harsh weather conditions, vibrations and other environmental influences. 
+		\item Adding \acrfull{ota} firmware update support to the device. This feature could provide quick bug-fixes and simplifying the addition of custom features. It would accelerate the updating process especially for larger fleets.
+		\item Porting the Python based \acrshort{http} server application to dedicated onway hardware (network router).
+		\item Cost reduction of the hardware. This can be achieved by different assembly options (e.g. with/without physical Ethernet interface).
+		\item Implementation of accelerometer data transmission.
+\end{itemize}
+
+\newpage
+\section{Reflection \& Project Schedule}
+Our time management was excellent, all milestones were reached as scheduled and all functions were implemented on time. There were some parts of the firmware that turned out to be more complicated than expected, resulting in long workdays in order to stay on schedule. It proved to be a very substantial decision, to switch from the \gls{esp-idf} framework to \gls{arduino} based core libraries. This has helped drastically to get the \acrshort{usb}-Interface and file system working. The \gls{esp-idf} lacks software support in these areas. Further, assembly and testing of the hardware took almost three times longer than we originally planned. This was caused by a small oversight in the schematic of the device, which led to a bad connection. After having rectified the problem in the Ethernet controller circuitry, everything else went smoothly.
+
+\section{Personal Reflections}
+
+\subsubsection{Florian Baumgartner}
+This student research project allowed me to get involved to the \acrshort{can} interface and the \acrshort{fms} protocol. Further I could make use of my previously gained knowledge in the field of embedded systems and software engineering. It was a very positive experience to develop a fully working product in such a small time frame. The detailed planing of the project proved to be very important. Thus, I'm especially proud of meeting each milestone on time and preventing major delays. \newline
+It was a pleasure to work with Luca Jost and we had overall a great time working on this project. My personal highlight was learning the PyQt5 framework as well as using the Plotly library. I'm fairly interested in the field of \acrshort{iot} devices, therefore this project was a great opportunity to deepen my knowledge and getting more experienced.
+
+I'm glad that the hardware development went that smoothly although the ongoing worldwide chip shortage made it difficult to get access to the components needed. It payed out to premature focus on this particularly challenging situation and chose parts that were easily available. All in all, good communication was key to lead to a successful result.
+
+\subsubsection{Luca Jost}
+In general, this student research project overall has been very enjoyable. Within just a few weeks, we transformed an idea into a deployment-ready product. The Fleet-Monitor is working as designed and I am looking forward to seeing the device being used in the field. During the project, I was able to leverage my previous experience and build on it. I found it particularly fascinating to learn more about \acrshort{can} systems, as it is a very popular technology in the industry currently. Working with embedded systems is something I have always liked and this project was no exception. Developing real-time operating systems with complex logic is something I enjoy. This project was not particularly complex, and unfortunately, there was nothing that challenged me significantly.
+
+In past projects, I had trouble with time management, so we made sure to develop a realistic timetable this time. Spending the extra time on the schedule has proven to be very advantageous as I was able to deliver all tasks on time. 
+
+The experience of working with Florian Baumgarnter was extremely rewarding; his dedication and attention to detail are admirable.
