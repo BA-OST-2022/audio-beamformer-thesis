@@ -46,6 +46,7 @@
 
 \makechapterstyle{bianchimod}{%
   \copypagestyle{abstract}{empty}
+  \copypagestyle{acknowledgement}{empty}
   \chapterstyle{default}
   \renewcommand*{\chapnamefont}{\normalfont\Large\sffamily}
   \renewcommand*{\chapnumfont}{\normalfont\Large\sffamily}
@@ -62,6 +63,7 @@
   
 \makechapterstyle{bianchimod2}{%
   \renewenvironment{abstract}{\chapter*{\abstractname}}{}
+  \newenvironment{acknowledgement}{\chapter*{Acknowledgement}}{}
   \chapterstyle{default}
   \definecolor{ChapGrey}{rgb}{0.6,0.6,0.6}
   \newcommand{\LargeFont}{% Needs a ’stretchable’ font
@@ -168,9 +170,9 @@
 		%
 		\begin{minipage}[c]{0.25\linewidth}
 			\vspace{0pt}
-			\hfuzz=5.0pt
-			    \hspace*{-1cm} 
-			        \includegraphics[width=1.3\linewidth]{images/onway_logo}
+			\hfuzz=6.0pt
+			    \hspace*{-1.7cm} 
+			        \includegraphics[width=1.5\linewidth]{images/icai_logo}
 		\end{minipage}
 		\vspace{2cm}
 		\sffamily
@@ -184,8 +186,8 @@
 		{\LARGE\sffamily\bfseries Florian Baumgartner}\par
 		{\sffamily\ \href{mailto:florian.baumgartner@ost.ch}{florian.baumgartner@ost.ch}}\par
 		\vspace{0.5cm}
-		{\LARGE\sffamily\bfseries Luca Jost}\par
-		{\sffamily\ \href{mailto:luca.jost@ost.ch}{luca.jost@ost.ch}}\par
+		{\LARGE\sffamily\bfseries Thierry Schwaller}\par
+		{\sffamily\ \href{mailto:thierry.schwaller@ost.ch}{thierry.schwaller@ost.ch}}\par
 		\vspace{1cm}
     	{\large\textbf{Advisor}\par
     		\@advisor\par}
