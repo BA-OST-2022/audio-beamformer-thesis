@@ -152,11 +152,11 @@ Figure \ref{3_Parametric_array_img:Transducer_Model} shows the basic setup of a 
 \begin{equation}\label{3.4_eq:simplified_xm}
     x_m 
     = 
-    \left ( \frac{2m -1 - M}{2} \right ) \underbrace{(d + a)}_{c}
+    \left ( \frac{2m -1 - M}{2} \right ) \underbrace{(d + a)}_{s}
     =
-    \left ( \frac{2m -1 - M}{2} \right ) c,
+    \left ( \frac{2m -1 - M}{2} \right ) s,
 \end{equation}
-where $d$ is the distance between the transducers, a is the size of the transducers and $c$ is known as the pitch of the array. 
+where $d$ is the distance between the transducers, $a$ is the size of the transducers and $s$ is known as the pitch of the array. 
 The far field pressure of a single element can be calculated as \cite{alma99116706330905515}
 \begin{equation}
     p_m(r_m,\omega) 
@@ -200,7 +200,7 @@ Or with \ref{3.4_eq:simplified_xm} as
 \begin{equation}
     p(R,\varphi,\omega) 
     = 
-    A D_T(\varphi) P(R) \underbrace{\sum_{i=1}^M C_m e^{j (\omega \Delta t_m -k \left ( \frac{2m -1 - M}{2} \right )a \sin{(\varphi)} )}}_{D_S(\bm{C}, \bm{\Delta t} , \varphi)}.
+    A D_T(\varphi) P(R) \underbrace{\sum_{i=1}^M C_m e^{j (\omega \Delta t_m -k \left ( \frac{2m -1 - M}{2} \right )s \sin{(\varphi)} )}}_{D_S(\bm{C}, \bm{\Delta t} , \varphi)}.
     \label{3_eq:beam_model_final}
 \end{equation}
 This is the main model used to explain the directivity pattern of parametric transducer arrays. The sum can be understood as an array directivity $D_s$ introduced by the delays and weights. 
@@ -209,41 +209,41 @@ As an example the weights are set to $C_m = 1$ and the delays to $\Delta t_m = 0
 \begin{equation}
    D_s(\phi)
     = 
-    e^{jka\left ( \frac{M+1}{2} \right )\sin{\phi} } \sum_{m=1}^M \left ( e^{-jka \sin{(\varphi)}} \right ) ^ m .
+    e^{jks\left ( \frac{M+1}{2} \right )\sin{\phi} } \sum_{m=1}^M \left ( e^{-jks \sin{(\varphi)}} \right ) ^ m .
 \end{equation}
 This can be seen as a geometric series which can be written as 
 \begin{align}
-   \sum_{m=1}^M \left ( e^{-jka \sin{(\varphi)}} \right ) ^ m
+   \sum_{m=1}^M \left ( e^{-jks \sin{(\varphi)}} \right ) ^ m
     &= 
-     e^{-jka \sin{(\varphi)}}\frac{1 - e^{-jka \sin{(\varphi) M }}}{1 - e^{-jka \sin{(\varphi)}}} \\
+     e^{-jks \sin{(\varphi)}}\frac{1 - e^{-jks \sin{(\varphi) M }}}{1 - e^{-jks \sin{(\varphi)}}} \\
      &=
-     e^{-jka\left ( \frac{M + 1}{2}\right ) \sin{(\varphi)}} \frac{\sin{\frac{Mka\sin{(\phi)}}{2}}}{\sin{\frac{ka\sin{(\varphi)}}{2}}}.
+     e^{-jks\left ( \frac{M + 1}{2}\right ) \sin{(\varphi)}} \frac{\sin{\frac{Mks\sin{(\phi)}}{2}}}{\sin{\frac{ks\sin{(\varphi)}}{2}}}.
 \end{align}
 The array directivity can be described as
 \begin{equation}
     D_s(\phi) 
     = 
-    \frac{\sin{\frac{Mka\sin{(\phi)}}{2}}}{\sin{\frac{ka\sin{(\varphi)}}{2}}}.
+    \frac{\sin{\frac{Mks\sin{(\phi)}}{2}}}{\sin{\frac{ks\sin{(\varphi)}}{2}}}.
     \label{3_eq:directivity_no_delay}
 \end{equation}
-Since $k = \frac{2\pi}{\lambda}$, if $a = \lambda$ the directivity turns out to be
+Since $k = \frac{2\pi}{\lambda}$, if $s = \lambda$ the directivity turns out to be
 \begin{equation}
     D_s(\phi) 
     = 
-    \frac{\sin{\left ( M\pi\sin{(\phi)} \right )} }{ \sin{\left ( \pi\sin{(\varphi)}\right )}}
+    \frac{\sin{\left ( M\pi\sin{(\phi)} \right )} }{ \sin{\left ( \pi\sin{(\varphi)}\right )}},
 \end{equation}
 in which the numerator and the denominator are only equal at zero and $2\pi$. So there is only one main lobe in the range between $-\pi/2$ and $\pi/2$, as seen in Figure \ref{3_subfig:directivity_no_steer_lambda1}. If this is not the case there are multiple lobes with the size of the main lobe, as seen in Figure \ref{3_subfig:directivity_no_steer_2lambda}.
 \begin{figure}
     \begin{minipage}{0.49\textwidth}
     \centering
     \includegraphics[width=\textwidth]{images/3_Parametric_array/Directivity_NoSteer_Lambda.pdf}
-    \caption{Array Directivity $a = \lambda$}
+    \caption{Array Directivity $s = \lambda$}
     \label{3_subfig:directivity_no_steer_lambda1}
     \end{minipage}
     \begin{minipage}{0.49\textwidth}
     \centering
     \includegraphics[width=\textwidth]{images/3_Parametric_array/Directivity_NoSteer_2Lambda.pdf}
-    \caption{Array Directivity $a = 2\lambda$}
+    \caption{Array Directivity $s = 2\lambda$}
      \label{3_subfig:directivity_no_steer_2lambda}
     \end{minipage}
 \end{figure}
@@ -252,14 +252,14 @@ in which the numerator and the denominator are only equal at zero and $2\pi$. So
 The basic idea of beam steering is to delay the different channels in such a way that the wave fronts create a certain angle. This can be seen graphically in Figure \ref{3_fig:basic_idea_beamforming}.
 If the delays are
 \begin{equation}
-    \Delta t_m = \frac{a \sin{\theta}}{c} \left ( \frac{2m - 1 - M}{2}\right ),
+    \Delta t_m = \frac{s \sin{\theta}}{c} \left ( \frac{2m - 1 - M}{2}\right ),
 \end{equation}
 where $\theta$ is the angle to steer and the weights $C_m = 1$ are inserted into Equation \ref{3_eq:beam_model_final}.
 The array directivity $D_S$ turns out to be \cite{alma99116706330905515}
 \begin{equation}
     D_S(1, \bm{\Delta t} , \varphi) 
     = 
-    \frac{\sin{\frac{Mka(\sin{(\phi)} - \sin{(\theta)})}{2}}}{M\sin{\frac{ka(\sin{(\varphi)} - \sin{(\theta)})}{2}}}.
+    \frac{\sin{\frac{Mks(\sin{(\phi)} - \sin{(\theta)})}{2}}}{M\sin{\frac{ks(\sin{(\varphi)} - \sin{(\theta)})}{2}}}.
 \end{equation}
 This shows that the beam Steering just moves the the directivity calculated in \ref{3_eq:directivity_no_delay} around.  
 This can be seen in Figure \ref{3_fig:directivity_beamsteering} for different steering angles.  
@@ -282,7 +282,7 @@ This can be seen in Figure \ref{3_fig:directivity_beamsteering} for different st
 \subsection{Beam Focusing}
 To focus the beam at a certain distance $R_0$ the delays have to be chosen as
 \begin{equation}
-    \Delta t_m = \frac{a^2}{2R_0c}(m-1)(M-m).
+    \Delta t_m = \frac{s^2}{2R_0c}(m-1)(M-m).
 \end{equation}
 This generates delays which are valued in a parabolic shape. This ensures that the waves meet exactly at the focal point, as shown in Figure \ref{3_fig:beamfocusing}.
 \begin{figure}[h!]
